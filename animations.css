@@ -1,0 +1,139 @@
+/* =========================================================
+   oFFe 포트폴리오 · 애니메이션 레이어
+   - styles.css 다음에 연결: <link rel="stylesheet" href="animations.css">
+   - 원칙: 첫 화면 한 번의 "컷 인" 연출 + 편집 프로그램 같은 작은 움직임 2개
+   - 전체 등장 연출은 약 1.1초 안에 끝나고, 내용을 기다리게 만들지 않음
+   - '동작 줄이기'를 켠 사용자에게는 전부 꺼짐
+   ========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  :root {
+    --ease-out: cubic-bezier(.2, .8, .2, 1);
+    --ease-pop: cubic-bezier(.34, 1.56, .64, 1);
+  }
+
+  /* ---------- 1. 히어로: 편집 컷 인 시퀀스 ---------- */
+
+  /* "안녕하세요," 인사말 */
+  .hero .hello {
+    animation: rise .5s var(--ease-out) both;
+  }
+
+  /* 이름: 타임라인에 클립이 그려지듯 왼쪽→오른쪽으로 드러남 */
+  .hero h1 {
+    animation: wipe .55s var(--ease-out) .1s both;
+  }
+
+  /* 이름 아래 형광 밑줄: 펜으로 긋듯
+     (transform-origin을 바꾸면 밑줄의 rotate 기준점이 옮겨져 최종 위치가 ~14px 틀어져서, scale 대신 clip-path로 그림) */
+  .hero .swash {
+    animation: wipe .45s var(--ease-out) .45s both;
+  }
+
+  /* 직무 문구 → 소개 문장 → 버튼 순서로 살짝 올라옴 */
+  .hero .roles     { animation: rise .45s var(--ease-out) .55s both; }
+  .hero .lede      { animation: rise .45s var(--ease-out) .62s both; }
+  .hero .hero-ctas { animation: rise .45s var(--ease-out) .70s both; }
+
+  /* 일러스트 액자: 페이드가 아니라 '하드 컷'처럼 딱 들어옴 */
+  .hero .hero-frame {
+    animation: cut-in .35s var(--ease-out) .30s both;
+  }
+
+  /* 스티커: 붙이듯 톡 → 이어서 원래의 흔들림(wob, styles.css) 계속
+     (animation을 하나만 쓰면 styles.css의 흔들림이 덮여 사라져서 둘 다 나열) */
+  .hero .sticker {
+    animation: pop .45s var(--ease-pop) .75s both, wob 4s ease-in-out 1.2s infinite;
+  }
+
+  /* "컷!" 낙서: 감독 신호처럼 한 박자 늦게 번쩍 */
+  .hero .doodle {
+    animation: flash .01s steps(1) .85s both;
+  }
+
+  /* REC 태그 등장 */
+  .hero .rec {
+    animation: rise .4s var(--ease-out) .9s both;
+  }
+
+  /* ---------- 2. 계속 움직이는 작은 디테일 (2개만) ---------- */
+
+  /* REC 빨간 점: 녹화 중처럼 천천히 부드럽게 깜빡임 */
+  .rec i {
+    animation: rec-blink 2s ease-in-out 1.3s infinite;
+  }
+
+  /* 쇼릴 섹션 타임라인: 재생 헤드가 트랙 위를 천천히 흘러감
+     트랙 라벨(V1/V2/A1) 너비에 맞춰 --ph-start 값만 조정하면 됨
+     클립 시작 = 안쪽 여백 14px + 라벨 22px + 간격 10px = 46px
+     클립 끝   = 100% − 오른쪽 여백 14px − 헤드 두께 2px */
+  .tracks {
+    --ph-start: 46px;
+    --ph-end: calc(100% - 16px);
+  }
+  .tracks .playhead {
+    animation: playhead 9s linear infinite;
+  }
+
+  /* ---------- 3. 스크롤 등장 (블록마다 한 번) ----------
+     main.js가 "처음 화면 밖에 있던" 블록(카드, 툴 그룹, 연락처 카드 등)에만 .reveal을 붙이고,
+     화면 아래 12% 선을 넘어오면 .is-in을 붙임. 다 나타나면 두 클래스 모두 지워짐.
+     처음부터 보이는 부분은 .reveal이 안 붙어서 숨겨지지 않음. --rd = 형제끼리 차례 지연 */
+  .reveal {
+    opacity: 0;
+    translate: 0 24px;
+    transition: opacity .5s var(--ease-out) var(--rd, 0ms), translate .5s var(--ease-out) var(--rd, 0ms);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  /* ---------- 4. 작업 카드 호버: 썸네일만 살짝 확대 (썸네일 칸 밖으로 안 나감) ---------- */
+  .work-card .thumb img {
+    transition: scale .45s var(--ease-out);
+  }
+  .work-card:hover .thumb img,
+  .work-card:focus-visible .thumb img {
+    scale: 1.06;
+  }
+
+  /* ---------- 키프레임 ---------- */
+
+  @keyframes rise {
+    from { opacity: 0; translate: 0 14px; }
+    to   { opacity: 1; translate: 0 0; }
+  }
+
+  @keyframes wipe {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0 0 0); }
+  }
+
+  @keyframes cut-in {
+    0%   { opacity: 0; scale: 1.04; }
+    1%   { opacity: 1; }
+    100% { opacity: 1; scale: 1; }
+  }
+
+  @keyframes pop {
+    from { opacity: 0; scale: .6; }
+    to   { opacity: 1; scale: 1; }
+  }
+
+  @keyframes flash {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes rec-blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: .2; }
+  }
+
+  @keyframes playhead {
+    from { left: var(--ph-start); }
+    to   { left: var(--ph-end); }
+  }
+}
