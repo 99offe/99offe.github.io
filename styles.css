@@ -280,6 +280,12 @@ footer .footer-name { margin-left: -6px; font-size: 13px; font-weight: 700; colo
 .m-meta dd { margin: 0; font-size: 15px; line-height: 1.5; font-weight: 600; }
 .m-point { border-top: 1px solid #2a2b33; padding-top: 16px; }
 .m-point p { margin: 0; font-size: 15px; line-height: 1.75; color: #b9b7b0; text-wrap: pretty; }
+/* 제작 노트 버튼 (note가 있는 작품만) */
+.m-note { display: flex; flex-wrap: wrap; gap: 10px 12px; }
+.m-note-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--acc); color: var(--ink); padding: 11px 20px; border: 2px solid var(--acc); border-radius: 999px; font-size: 14px; font-weight: 800; box-shadow: 0 4px 0 var(--acc-shadow); transition: transform .15s, background .15s, color .15s; }
+.m-note-btn:hover { color: var(--ink); transform: translateY(-2px); }
+.m-note-btn.ghost { background: none; color: #f4f2ec; border-color: var(--purple); box-shadow: none; }
+.m-note-btn.ghost:hover { background: var(--purple); color: #fff; }
 .m-yt { align-self: flex-start; font-size: 14px; font-weight: 800; color: var(--acc); }
 .m-credit { margin: -6px 0 0; font-size: 12px; color: #8b8983; }
 

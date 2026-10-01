@@ -8,6 +8,7 @@ const reel = { title: '쇼릴 2026', client: '유지훈', cat: '하이라이트'
 // role / tools / period / point: 있으면 영상 아래에 작업 정보로 표시돼요. 비워두면 그 줄은 숨겨져요.
 // notice: 카드와 상세 화면에 눈에 띄게 표시할 안내 문구 (예: 가상 광고 표시).
 // credit: 상세 화면 맨 아래에 작게 표시할 출처 · 참고 문구.
+// note: 제작 노트 PDF 경로. 있으면 상세 화면에 '제작 노트 보기'(새 탭) · 'PDF 다운로드' 버튼이 보여요. 없으면 버튼 숨김.
 const projects = [
   {
     title: '첫 카메라, 첫 속초', cat: '브이로그', client: '1인 제작', dur: '04:58',
@@ -34,6 +35,7 @@ const projects = [
     period: '1일',
     point: '여행 사진과 영상을 콜라주로 겹쳐 필름 앨범을 넘기는 듯한 무드를 만들고, After Effects로 사진이 쌓이고 타이틀이 등장하는 모션을 더해 정적인 사진도 리듬감 있게 흐르도록 구성했습니다.',
     credit: '일부 사진은 외부 이미지를 활용했습니다',
+    note: '제작노트/osaka 기획안.pdf',
   },
   {
     title: "oFFe's mind", cat: '모션그래픽', client: '1인 제작', dur: '00:55',
@@ -179,7 +181,7 @@ function openItem(item) {
   $('m-hit').hidden = !!embed;
   $('m-controls').hidden = !!embed;
 
-  const hasInfo = !!(item.role || item.tools || item.period || item.point || item.youtube || item.credit);
+  const hasInfo = !!(item.role || item.tools || item.period || item.point || item.youtube || item.credit || item.note);
   $('m-details').hidden = !hasInfo;
   if (hasInfo) {
     [['role', 'm-role'], ['tools', 'm-tools'], ['period', 'm-period']].forEach(([k, id]) => {
@@ -192,6 +194,13 @@ function openItem(item) {
     $('m-credit').hidden = !item.credit;
     $('m-yt').hidden = !item.youtube;
     if (item.youtube) $('m-yt').href = 'https://youtu.be/' + encodeURIComponent(item.youtube);
+    $('m-note').hidden = !item.note;
+    if (item.note) {
+      const noteUrl = encodeURI(item.note);
+      $('m-note-view').href = noteUrl;
+      $('m-note-dl').href = noteUrl;
+      $('m-note-dl').download = `유지훈_${item.title}_제작노트.pdf`;
+    }
   }
 
   modal.hidden = false;
