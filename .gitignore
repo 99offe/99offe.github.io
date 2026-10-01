@@ -2,5 +2,5 @@
 Thumbs.db
 desktop.ini
 ~$*
-# 이력서 원본(한글 파일) — 사이트엔 resume.pdf만 사용
-resume.hwp
+# 이력서·자소서 원본(한글 파일) — 사이트엔 resume.pdf만 사용
+*.hwp
