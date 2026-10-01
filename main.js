@@ -24,7 +24,7 @@ const projects = [
     role: '기획 · 소스 선별 · 컷편집 · 색보정 · 사운드 (1인 제작)',
     tools: 'Premiere Pro, After Effects',
     period: '1일',
-    point: '음악 비트에 맞춘 빠른 컷 전환으로 30초 안에 브랜드의 에너지를 압축했습니다.',
+    point: '음악 비트에 맞춘 빠른 컷 전환으로 47초 안에 브랜드의 에너지를 압축했습니다.',
   },
   {
     title: 'Osaka', cat: '브이로그', client: '필름로그', dur: '00:28',
