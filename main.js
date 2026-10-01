@@ -13,7 +13,7 @@ const projects = [
   {
     title: '첫 카메라, 첫 속초', cat: '브이로그', client: '1인 제작', dur: '04:58',
     src: 'assets/속초 썸네일.webp', color: '#2f8cff', youtube: '99FYC_MeHsM',
-    role: '기획 · 촬영 · 컷편집 · 자막 · 색보정 · 사운드 (1인 제작)',
+    role: '기획 · 촬영 · 컷편집 · 자막 · 색보정 · 썸네일 (1인 제작)',
     tools: 'Premiere Pro, Photoshop(썸네일)',
     period: '3일',
     point: '계획 없이 떠난 첫 여행의 흐름을 출발부터 해변까지 시간 순으로 엮었고, 속마음을 말하듯 쓴 자막과 반복되는 그림자 컷으로 혼자 떠난 여행의 분위기를 살렸습니다.',
@@ -36,7 +36,7 @@ const projects = [
     period: '1일',
     point: '여행 사진과 영상을 콜라주로 겹쳐 필름 앨범을 넘기는 듯한 무드를 만들고, After Effects로 사진이 쌓이고 타이틀이 등장하는 모션을 더해 정적인 사진도 리듬감 있게 흐르도록 구성했습니다.',
     credit: '일부 사진은 외부 이미지를 활용했습니다',
-    note: '제작노트/osaka 기획안.pdf',
+    note: 'assets/plans/osaka-note.pdf',
   },
   {
     title: "oFFe's mind", cat: '모션그래픽', client: '1인 제작', dur: '00:55',
