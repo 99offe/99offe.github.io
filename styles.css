@@ -241,22 +241,6 @@ main { position: relative; z-index: 2; padding-bottom: 60px; display: flex; flex
 .cl-value { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1; overflow-wrap: anywhere; }
 .cl-go { margin-top: 6px; font-size: 14px; font-weight: 800; }
 .contact-link.yt .cl-go { color: var(--orange); }
-.contact-link.phone { background: var(--surf2); border: 1.5px solid var(--line); color: var(--text); }
-.contact-link.phone:hover { transform: none; border-color: var(--blue); }
-.contact-link.phone .cl-value { letter-spacing: .02em; }
-.contact-link.phone .cl-value a { color: var(--text); }
-.contact-link.phone .cl-value a:hover { color: var(--blue); }
-.phone-reveal { align-self: flex-start; background: none; border: 0; padding: 0; color: var(--blue); cursor: pointer; font-family: inherit; }
-.contact-link.phone .cl-go:hover { text-decoration: underline; color: var(--blue); }
-.contact-link.phone .cl-value { user-select: all; }
-.phone-btn { align-self: flex-start; background: none; border: 0; padding: 0; color: var(--blue); cursor: pointer; font-family: inherit; }
-.phone-btn.done { color: var(--acc-text); }
-/* 기기별로 하나만 보이기: 터치 화면(휴대폰·태블릿) → 전화 걸기, 마우스(PC) → 번호 복사 */
-.only-touch { display: none; }
-@media (hover: none) and (pointer: coarse) {
-  .only-touch { display: inline-block; }
-  .only-pointer { display: none; }
-}
 [hidden] { display: none !important; }
 
 /* footer */

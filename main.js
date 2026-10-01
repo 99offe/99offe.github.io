@@ -140,53 +140,6 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   addEventListener('resize', onScroll);
 }
 
-/* ---------- phone reveal ---------- */
-// 스팸 수집 방지: 번호를 소스에 그대로 두지 않고, 뒤집은 조각을 base64로 저장했다가 클릭할 때만 조립해요.
-const PHONE_BITS = ['MDEw', 'Mjc4OA==', 'MjA0MA=='];
-function phoneNumber() {
-  return PHONE_BITS.map(b => atob(b).split('').reverse().join(''));
-}
-// 번호가 보인 뒤: PC는 "번호 복사", 휴대폰(터치 화면)은 "전화 걸기" — 둘 다 넣고 CSS가 기기에 맞는 것만 보여줘요
-function copyFallback(text) {
-  const ta = Object.assign(document.createElement('textarea'), { value: text });
-  ta.setAttribute('readonly', '');
-  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
-  document.body.appendChild(ta); ta.select();
-  let ok = false;
-  try { ok = document.execCommand('copy'); } catch (e) {}
-  ta.remove();
-  return ok ? Promise.resolve() : Promise.reject();
-}
-function copyText(text) {
-  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).catch(() => copyFallback(text));
-  return copyFallback(text);
-}
-$('phone-reveal').addEventListener('click', () => {
-  const [a, b, c] = phoneNumber();
-  const pretty = `${a}-${b}-${c}`;
-  $('phone-value').textContent = pretty;
-
-  const actions = document.createElement('div');
-  actions.className = 'phone-actions';
-  const copy = Object.assign(document.createElement('button'), { type: 'button', className: 'cl-go phone-btn only-pointer', textContent: '번호 복사' });
-  const call = Object.assign(document.createElement('a'), { className: 'cl-go phone-btn only-touch', href: `tel:${a}${b}${c}`, textContent: '전화 걸기 →' });
-  let timer;
-  copy.addEventListener('click', () => {
-    copyText(pretty).then(() => {
-      copy.textContent = '복사됨!';
-      copy.classList.add('done');
-      clearTimeout(timer);
-      timer = setTimeout(() => { copy.textContent = '번호 복사'; copy.classList.remove('done'); }, 1600);
-    }, () => {
-      copy.textContent = '복사 실패 — 번호를 직접 선택해 주세요';
-      clearTimeout(timer);
-      timer = setTimeout(() => { copy.textContent = '번호 복사'; }, 2500);
-    });
-  });
-  actions.append(copy, call);
-  $('phone-reveal').replaceWith(actions);
-});
-
 /* ---------- player modal ---------- */
 const modal = $('modal');
 let cur = null, playing = false, t = 0, secs = 0;
