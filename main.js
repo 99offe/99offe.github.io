@@ -1,8 +1,8 @@
 // 쇼릴 영상 임베드 주소 (예: https://www.youtube.com/embed/XXXX 또는 https://player.vimeo.com/video/XXXX)
 // 비워두면 썸네일 + 가상 플레이어가 표시됩니다.
-const REEL_URL = '';
+const REEL_URL = 'https://www.youtube.com/embed/kjOagqW8L0Q?autoplay=1&rel=0&playsinline=1';
 
-const reel = { title: '쇼릴 2026', client: '유지훈', cat: '하이라이트', dur: '01:30', src: 'assets/오사카 썸네일.webp', ph: '쇼릴 영상', isReel: true };
+const reel = { title: '쇼릴 2026', client: '유지훈', cat: '하이라이트', dur: '01:31', src: 'assets/쇼릴 썸네일.webp', ph: '쇼릴 영상', isReel: true };
 
 // youtube: 영상 ID (youtu.be/ 뒤의 값). 있으면 카드 클릭 시 실제 영상이 재생돼요.
 // role / tools / period / point: 있으면 영상 아래에 작업 정보로 표시돼요. 비워두면 그 줄은 숨겨져요.
