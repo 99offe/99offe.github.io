@@ -46,6 +46,17 @@ const projects = [
     period: '2일',
     point: "빛 입자 하나가 머릿속을 여행하듯 좋아하는 물건들을 차례로 비추고, 마지막에 모든 오브젝트가 로고 주위로 모여드는 구조로 '나'를 소개했습니다. 청록 단색의 홀로그램 톤과 컷 없이 이어지는 카메라 흐름으로 하나의 공간 안에 있는 듯한 몰입감을 만들었습니다.",
   },
+  {
+    title: 'Monster Wake-Up', cat: '광고', client: '팀 프로젝트', dur: '01:06',
+    src: 'assets/monster-thumb.png', color: '#3a7d1e', youtube: 'g2YyrlDzFqA',
+    notice: 'AI 가상 광고 · 팀 프로젝트(3인)',
+    role: '편집 · 구성 · 사운드 · 음악 (전담) / 기획 · AI 영상 소스 생성 (일부 참여)',
+    tools: 'Premiere Pro, Flow',
+    period: '5일',
+    point: 'AI로 생성한 짧은 클립들을 하나의 광고 이야기로 엮었습니다. 연료가 바닥난 외계인이 추락하고, 몬스터를 마신 뒤 다시 날아오르는 흐름에서 제품이 등장하는 순간을 이야기의 전환점으로 배치했고, 사운드와 음악으로 추락과 충전 구간의 에너지 변화를 살렸습니다.',
+    credit: '일부 영상 소스는 생성형 AI로 제작했습니다.',
+    note: 'assets/plans/monster-note.pdf',
+  },
 ].map(p => ({ ...p, ph: p.cat + ' 썸네일' }));
 
 const toSecs = d => { if (!d) return 0; const [m, s] = d.split(':').map(Number); return m * 60 + s; };
