@@ -84,7 +84,7 @@
 - [x] **umbro 편집 포인트**: "30초 안에" → "47초 안에"로 실제 영상 길이에 맞춤
 - [x] **대표 작업 부제목**: "브이로그·광고·모션그래픽 작업"으로 변경함
 - [x] **이메일 주소**: 평문 그대로 두기로 결정 (숨기지 않음)
-- [ ] **Monster Wake-Up 영상**: https://youtu.be/g2YyrlDzFqA 가 YouTube에서 "이 동영상은 볼 수 없습니다"(2026-10-01). 사용자가 카드를 먼저 올리기로 결정. 공개 상태(일부 공개)·퍼가기 허용 확인 필요, 고친 뒤 재생 확인 · 길이 01:06 맞는지 확인
+- [x] **Monster Wake-Up 영상**: ID 오타(소문자 l → 대문자 I)였음. `g2YyrIDzFqA`로 고침 — 재생 OK, 퍼가기 허용, 길이 66초(01:06) 확인 (2026-10-02). YouTube ID의 I/l, O/0은 헷갈리기 쉬우니 붙여넣기로 옮길 것
 - [ ] **로고 폰트** (선택): "oFFe" 소문자가 보이게 폰트를 바꿀지 결정
 - [x] **배포**: GitHub Pages — 저장소 github.com/99offe/99offe.github.io (공개), 주소 https://99offe.github.io/ . `main` 브랜치에 push하면 1~2분 뒤 자동 반영. `_config.yml`이 CLAUDE.md·serve.*를 사이트에서 제외(저장소엔 올라감), `_원본 이미지/`는 "_" 폴더라 자동 제외
 - [x] **공유 미리보기 주소**: `index.html` `<head>` 3곳을 https://99offe.github.io/ 로 교체함. 카카오톡에 예전 미리보기가 남으면 카카오 공유 디버거(developers.kakao.com → 도구 → 공유 디버거)에서 캐시 초기화

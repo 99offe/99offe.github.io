@@ -48,7 +48,7 @@ const projects = [
   },
   {
     title: 'Monster Wake-Up', cat: '광고', client: '팀 프로젝트', dur: '01:06',
-    src: 'assets/monster-thumb.png', color: '#3a7d1e', youtube: 'g2YyrlDzFqA',
+    src: 'assets/monster-thumb.png', color: '#3a7d1e', youtube: 'g2YyrIDzFqA',
     notice: 'AI 가상 광고 · 팀 프로젝트(3인)',
     role: '편집 · 구성 · 사운드 · 음악 (전담) / 기획 · AI 영상 소스 생성 (일부 참여)',
     tools: 'Premiere Pro, Flow',
