@@ -17,6 +17,7 @@ const projects = [
     tools: 'Premiere Pro, Photoshop(썸네일)',
     period: '3일',
     point: '계획 없이 떠난 첫 여행의 흐름을 출발부터 해변까지 시간 순으로 엮었고, 속마음을 말하듯 쓴 자막과 반복되는 그림자 컷으로 혼자 떠난 여행의 분위기를 살렸습니다.',
+    note: 'assets/plans/sokcho-note.pdf',
   },
   {
     title: 'umbro 스펙 광고 (가상)', cat: '광고', client: '개인 제작', dur: '00:47',

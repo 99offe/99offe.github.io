@@ -14,7 +14,7 @@
 | `main.js` | 대표 작업 데이터(`projects`) · 필터 · 영상 팝업 · 마퀴 문구 |
 | `serve.ps1`, `serve.bat` | 로컬 서버 (http://localhost:8000). YouTube 임베드 확인용 |
 | `assets/` | 사이트에서 쓰는 이미지 (전부 WebP). 예외: `og-image.jpg`(1200×630, 링크 공유 미리보기용 — 카톡 호환 때문에 JPG) |
-| `제작노트/` | 작품별 제작 노트(기획안) PDF. `projects`의 `note`로 연결 → 상세 화면에 "제작 노트 보기"(새 탭)·"PDF 다운로드" 버튼. 현재 Osaka만 (`osaka 기획안.pdf`) |
+| `제작노트/`, `assets/plans/` | 작품별 제작 노트(기획안) PDF. `projects`의 `note`로 연결 → 상세 화면에 "제작 노트 보기"(새 탭)·"PDF 다운로드" 버튼. 현재 Osaka(`제작노트/osaka 기획안.pdf`), 첫 카메라, 첫 속초(`assets/plans/sokcho-note.pdf`) |
 | `_원본 이미지/` | 변환 전 원본 PNG/JPG 백업. 사이트에서 참조하지 않음 → **배포할 때 제외** |
 
 빌드 도구 없음. 순수 HTML/CSS/JS. 외부 리소스는 Google Fonts, Pretendard(jsDelivr), YouTube 임베드뿐.
